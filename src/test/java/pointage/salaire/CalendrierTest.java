@@ -89,4 +89,19 @@ public class CalendrierTest {
         assertEquals(2400.0, montantRakoto, 0.01, "Le montant à payer à Rakoto est incorrect");
         assertEquals(4524.0, montantRabe, 0.01, "Le montant à payer à Rabe est incorrect");
     }
+    @Test
+    public void testHeuresTravailleesEtPaiementPartieC() {
+        int heuresParJourRakoto = 8;
+        int joursDansJuin = 30;
+        int heuresTotalesRakotoAvantChangement = heuresParJourRakoto * 24;
+        int heuresTotalesRakotoApresChangement = 16 * 2 + heuresParJourRakoto * 2;
+        int tauxHoraireRakoto = 10;
+        double montantRakoto = (heuresTotalesRakotoAvantChangement + heuresTotalesRakotoApresChangement) * tauxHoraireRakoto;
+        assertEquals(192, heuresTotalesRakotoAvantChangement, "Le nombre d'heures de Rakoto avant changement est incorrect");
+        assertEquals(32 + heuresParJourRakoto * 2, heuresTotalesRakotoApresChangement, "Le nombre d'heures de Rakoto après changement est incorrect");
+        assertEquals(2400.0, montantRakoto, 0.01, "Le montant à payer à Rakoto est incorrect");
+    }
+
+
+
 }
